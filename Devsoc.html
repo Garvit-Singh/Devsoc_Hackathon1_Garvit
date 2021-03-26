@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>Devsoc</Title>
+
+<style>@import url(https://fonts.googleapis.com/css?family=Sigmar+One);
+
+body {
+
+	color: #fff;
+	overflow: hidden;
+	background: url(https://dl.dropboxusercontent.com/s/v3m6p0p5kq6xzkz/100daysui_100bg.png) no-repeat, #303540;
+	background-size: cover;
+}
+
+.congrats {
+	position: absolute;
+	top: 140px;
+	width: 550px;
+	height: 150px;
+	padding: 20px 10px;
+	text-align: center;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+
+h1 {
+	transform-origin: 50% 50%;
+	font-size: 60px;
+	font-family: 'Sigmar One', cursive;
+	cursor: pointer;
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	text-align: center;
+	width: 100%;
+}
+
+.blob {
+	height: 100px;
+	width: 50px;
+	color: #ffcc00;
+	position: absolute;
+	top: 45%;
+	left: 45%;
+	z-index: 1;
+	font-size: 30px;
+	display: none;
+}
+$btn-color--primary: rgba(41, 118, 223, 1);
+$btn-shadow: rgba(41, 118, 223, .5);
+$btn-shine: linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(250,198,100,.27) 100%);
+$btn-color--success: rgba(0,208,0,1);
+$btn-shadow--success: rgba(0,208,0,.5);
+@mixin btn-shadow($color) {
+    box-shadow: 0 15px 40px 0 $color;
+}
+.u-btn {
+    flex: 0 0 100%;
+    padding: 14px 20px;
+    border: 0;
+    background: $btn-shine, $btn-color--primary;
+    border-radius: 25px;
+    color: #000000;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: all .2s ease;
+    @include btn-shadow($btn-shadow);
+
+    &:hover {
+        opacity: 0.9;
+    }
+    &.u-btn--success {
+        background: $btn-color--success;
+        @include btn-shadow($btn-shadow--success);
+    }
+}
+
+</style>
+
+</head>
+<body>
+	
+
+<div class="congrats">
+	<h1>Congratulations! You have completed the quiz!</h1>
+</div>
+<img src="https://bit.ly/20qKWK0" style="display:none">
+<div class="modal-bottom">
+		<button class="modal-btn u-btn u-btn--share">Share</button>
+	<button class="modal-btn u-btn u-btn--Play Again"> <a href="menu.html"> Play Again </a></button>
+</div>
+
+</body>
+</html>
