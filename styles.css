@@ -213,7 +213,7 @@ transition-delay: 0.1s;
   transform: translateX(0);
   will-change: transform;
   transition: transform 0.3s ease-out;
-  cursor: grab;
+  /* cursor: grab; */
 }
 
 .slide{
@@ -225,7 +225,7 @@ transition-delay: 0.1s;
   padding: 1rem;
 }
 
-/* @media(min-width: 1200px){
+/* @media(max-width: 100px){
   .slide {
     padding: 3rem;
   }
@@ -239,7 +239,9 @@ transition-delay: 0.1s;
   border-radius: 4px;
   user-select: none;
 }
-
+.section{
+  width:auto;
+}
 /* .grabbing {
   cursor: grabbing;
 } */

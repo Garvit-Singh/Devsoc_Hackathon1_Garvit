@@ -30,56 +30,56 @@ slides.forEach((slide, index) => {
 window.addEventListener('resize', setPositionByIndex)
 
 // prevent menu popup on long press
-window.oncontextmenu = function (event) {
-  event.preventDefault()
-  event.stopPropagation()
-  return false
-}
+// window.oncontextmenu = function (event) {
+//   event.preventDefault()
+//   event.stopPropagation()
+//   return false
+// }
 
 function getPositionX(event) {
   return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX
 }
 
-// use a HOF so we have index in a closure
-function touchStart(index) {
-  return function (event) {
-    currentIndex = index
-    startPos = getPositionX(event)
-    isDragging = true
-    animationID = requestAnimationFrame(animation)
-    slider.classList.add('grabbing')
-  }
-}
+// // use a HOF so we have index in a closure
+// function touchStart(index) {
+//   return function (event) {
+//     currentIndex = index
+//     startPos = getPositionX(event)
+//     isDragging = true
+//     animationID = requestAnimationFrame(animation)
+//     // slider.classList.add('grabbing')
+//   }
+// }
 
-function touchMove(event) {
-  if (isDragging) {
-    const currentPosition = getPositionX(event)
-    currentTranslate = prevTranslate + currentPosition - startPos
-  }
-}
+// function touchMove(event) {
+//   if (isDragging) {
+//     const currentPosition = getPositionX(event)
+//     currentTranslate = prevTranslate + currentPosition - startPos
+//   }
+// }
 
-function touchEnd() {
-  cancelAnimationFrame(animationID)
-  isDragging = false
-  const movedBy = currentTranslate - prevTranslate
+// function touchEnd() {
+//   cancelAnimationFrame(animationID)
+//   isDragging = false
+//   const movedBy = currentTranslate - prevTranslate
 
-  // if moved enough negative then snap to next slide if there is one
-  if (movedBy < -100 && currentIndex < slides.length - 1) currentIndex += 1
+//   // if moved enough negative then snap to next slide if there is one
+//   if (movedBy < -100 && currentIndex < slides.length - 1) currentIndex += 1
 
-  // if moved enough positive then snap to previous slide if there is one
-  if (movedBy > 100 && currentIndex > 0) currentIndex -= 1
+//   // if moved enough positive then snap to previous slide if there is one
+//   if (movedBy > 100 && currentIndex > 0) currentIndex -= 1
 
-  setPositionByIndex()
+//   setPositionByIndex()
 
-  slider.classList.remove('grabbing')
-}
+//   // slider.classList.remove('grabbing')
+// }
 function correct() {
-  currentIndex += 1
+  if (currentIndex < slides.length - 1) currentIndex += 1
   setPositionByIndex()
 }
 
 function wrong() {
-  currentIndex = 0
+  if (currentIndex > 0) currentIndex = 0
   setPositionByIndex()
 }
 
@@ -90,7 +90,7 @@ function animation() {
 }
 
 function setPositionByIndex() {
-  currentTranslate = currentIndex * -window.innerWidth
+  currentTranslate = currentIndex * -window.innerWidth * 1.02
   prevTranslate = currentTranslate
   setSliderPosition()
 }
